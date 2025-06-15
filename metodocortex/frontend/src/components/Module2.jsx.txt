@@ -1,0 +1,24 @@
+import React from 'react';
+
+export default function Module2() {
+  return (
+    <div>
+      <h1 className="text-3xl font-bold mb-4 text-brand-dark">Módulo 2: O Mapa da Mente (E-book)</h1>
+      <div className="prose lg:prose-xl max-w-none p-6 bg-white rounded-lg border">
+        <h2 className="text-2xl font-bold">Acabe com a Procrastinação: A Jornada Científica para a Ação</h2>
+        
+        <h3 className="font-bold mt-4">Introdução: A Promessa de 1 Hora</h3>
+        <p>Bem-vindo(a) à sua jornada de transformação. Este guia foi desenhado para ser rápido e poderoso...</p>
+
+        <h3 className="font-bold mt-4">Capítulo 1: O Diagnóstico Preciso da Procrastinação</h3>
+        <p>Para vencer a procrastinação, primeiro precisamos de um diagnóstico preciso. A neurociência descobriu a neuroplasticidade: a capacidade do cérebro de se reorganizar...</p>
+
+        {/* O restante do conteúdo do e-book seria inserido aqui */}
+
+        <a href="/path/to/ebook.pdf" download className="mt-8 inline-block bg-brand-blue text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
+          Baixar E-book Completo (PDF)
+        </a>
+      </div>
+    </div>
+  );
+}

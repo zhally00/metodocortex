@@ -1,0 +1,46 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Páginas Públicas
+import LandingPage from './components/LandingPage';
+import LoginPage from './components/LoginPage'; // Nova página de login de aluno
+import SupportPage from './components/SupportPage'; // Nova página de suporte
+
+// Layout da Área de Membros
+import CourseLayout from './components/CourseLayout';
+import Dashboard from './components/Dashboard';
+import Module1 from './components/Module1';
+import Module2 from './components/Module2';
+import Module3 from './components/Module3';
+
+// Layout do Painel de Administrador
+import AdminLoginPage from './components/admin/AdminLoginPage'; // Nova página de login de admin
+import AdminDashboard from './components/admin/AdminDashboard'; // Novo painel de admin
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        {/* === ROTAS PÚBLICAS === */}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/suporte" element={<SupportPage />} />
+
+        {/* === ROTAS PRIVADAS DO CURSO (requerem login de aluno) === */}
+        <Route path="/curso" element={<CourseLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="modulo1" element={<Module1 />} />
+          <Route path="modulo2" element={<Module2 />} />
+          <Route path="modulo3" element={<Module3 />} />
+        </Route>
+
+        {/* === ROTAS PRIVADAS DE ADMIN (requerem login de admin) === */}
+        <Route path="/admin/login" element={<AdminLoginPage />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;

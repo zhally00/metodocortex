@@ -1,0 +1,94 @@
+import React, { useState } from 'react';
+import { Star, Users, Play, BookOpen, Wrench, X, Mail } from 'lucide-react';
+
+// Componente para o Modal de Captura de E-mail
+const EmailModal = ({ setShowModal }) => {
+    const [email, setEmail] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Lógica do Backend: aqui, o e-mail seria enviado para seu backend
+        // e, após o sucesso, o utilizador seria redirecionado para a Kirvano.
+        console.log('Email capturado:', email);
+        alert('A redirecionar para o pagamento...');
+        // window.location.href = '#kirvano-link'; // Descomente esta linha para redirecionar
+        setShowModal(false);
+    };
+
+    return (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg p-8 max-w-md w-full relative">
+                <button onClick={() => setShowModal(false)} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                    <X size={24} />
+                </button>
+                <h2 className="text-2xl font-bold mb-4 text-brand-dark">Só mais um passo!</h2>
+                <p className="text-brand-gray mb-6">Insira o seu melhor e-mail abaixo. Ele será usado para criar o seu acesso ao curso após a confirmação do pagamento.</p>
+                <form onSubmit={handleSubmit}>
+                    <div className="relative mb-4">
+                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+                        <input
+                            type="email"
+                            placeholder="seu.email@exemplo.com"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue"
+                        />
+                    </div>
+                    <button type="submit" className="w-full bg-brand-blue text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-blue-700 transition-colors shadow-lg">
+                        Ir para o Pagamento Seguro
+                    </button>
+                </form>
+            </div>
+        </div>
+    );
+};
+
+export default function LandingPage() {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleCTAClick = (e) => {
+    e.preventDefault();
+    setShowModal(true);
+  }
+
+  return (
+    <>
+      {showModal && <EmailModal setShowModal={setShowModal} />}
+      
+      <div className="min-h-screen bg-white text-brand-dark font-sans">
+      
+        {/* Hero Section */}
+        <section className="text-center py-20 px-6 bg-brand-light">
+          <div className="container mx-auto">
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">A Paz Mental de Terminar o Que Você Começa.</h1>
+            <p className="text-xl md:text-2xl text-brand-gray max-w-4xl mx-auto mb-8">
+              Um sistema de 3 módulos, baseado em neurociência, para desmontar a procrastinação pela raiz e substituir a ansiedade do "depois eu faço" pela satisfação da tarefa concluída.
+            </p>
+            <div className="flex items-center justify-center gap-4 mb-6 text-sm text-brand-gray">
+              <span className="flex items-center gap-1"><Star className="text-brand-gold fill-brand-gold" size={16} /> 4.9/5</span>
+              <span>•</span>
+              <span className="flex items-center gap-1"><Users size={16} /> Mais de 5.000 mentes desbloqueadas</span>
+            </div>
+            <button onClick={handleCTAClick} className="inline-block bg-brand-blue text-white font-bold py-4 px-8 rounded-lg text-lg hover:bg-blue-700 transition-transform transform hover:scale-105 shadow-lg">
+              QUERO SENTIR ESSE ALÍVIO AGORA
+            </button>
+          </div>
+        </section>
+
+        {/* O restante das seções da Landing Page continuam aqui... */}
+
+       {/* Seção CTA Final */}
+       <section className="py-20 px-6 bg-brand-dark text-white">
+        <div className="container mx-auto text-center">
+             <h2 className="text-3xl md:text-4xl font-bold mb-4">Sua Vaga na Turma Está Esperando. O Custo de Adiar é Alto.</h2>
+             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Tome a decisão que seu "eu do futuro" irá agradecer.</p>
+             <button onClick={handleCTAClick} className="inline-block bg-brand-blue text-white font-bold py-4 px-8 rounded-lg text-lg hover:bg-blue-700 transition-transform transform hover:scale-105 shadow-lg">
+                QUERO DESTRAVAR MINHA PRODUTIVIDADE
+             </button>
+        </div>
+       </section>
+      </div>
+    </>
+  );
+}

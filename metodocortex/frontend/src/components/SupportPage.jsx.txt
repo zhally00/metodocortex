@@ -1,0 +1,43 @@
+import React from 'react';
+import { Mail, MessageCircle } from 'lucide-react';
+
+export default function SupportPage() {
+    return (
+        <div className="min-h-screen bg-gray-50 py-12 px-4">
+            <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
+                <h1 className="text-4xl font-extrabold text-brand-dark mb-4">Suporte ao Cliente</h1>
+                <p className="text-lg text-brand-gray mb-8">
+                    Tem alguma dúvida ou está a enfrentar algum problema? A nossa equipa está aqui para ajudar.
+                </p>
+
+                <div className="space-y-6">
+                    <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 w-12 h-12 bg-brand-light text-brand-blue rounded-lg flex items-center justify-center">
+                            <Mail size={28} />
+                        </div>
+                        <div>
+                            <h2 className="text-xl font-bold">Via E-mail</h2>
+                            <p className="text-brand-gray mb-1">A forma mais recomendada. A nossa equipa responde em até 24 horas úteis.</p>
+                            <a href="mailto:suporte@seusite.com" className="font-bold text-brand-blue hover:underline">suporte@seusite.com</a>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 w-12 h-12 bg-brand-light text-brand-blue rounded-lg flex items-center justify-center">
+                            <MessageCircle size={28} />
+                        </div>
+                        <div>
+                            <h2 className="text-xl font-bold">Via WhatsApp</h2>
+                            <p className="text-brand-gray mb-1">Para questões rápidas, pode entrar em contacto através do nosso número de suporte.</p>
+                            <a href="https://wa.me/SEUNUMERO" target="_blank" rel="noopener noreferrer" className="font-bold text-brand-blue hover:underline">+XX (XX) XXXXX-XXXX</a>
+                        </div>
+                    </div>
+                </div>
+
+                 <div className="mt-10 text-center">
+                    <a href="/" className="text-sm text-brand-blue hover:underline">← Voltar para a página inicial</a>
+                </div>
+            </div>
+        </div>
+    );
+}

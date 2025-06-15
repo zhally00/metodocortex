@@ -1,0 +1,57 @@
+import React from 'react';
+
+// Este é um placeholder para o seu painel de administrador.
+// Um sistema real teria formulários para cada campo que você deseja editar.
+export default function AdminDashboard() {
+
+    const handleSave = (section) => {
+        // Lógica de Backend: Envia os dados atualizados para a base de dados.
+        alert(`Alterações na seção "${section}" foram salvas! (Simulação)`);
+    };
+
+    return (
+        <div className="p-4 md:p-8 bg-gray-100 min-h-screen font-sans">
+            <div className="max-w-4xl mx-auto">
+                <h1 className="text-3xl font-bold mb-8 text-brand-dark">Painel de Administrador</h1>
+
+                {/* Editor para a Seção Hero da Landing Page */}
+                <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+                    <h2 className="text-xl font-bold mb-4 text-brand-purple">Editor da Seção Principal (Hero)</h2>
+                    <div className="space-y-4">
+                        <div>
+                            <label className="block text-sm font-bold mb-1 text-brand-gray">Título Principal</label>
+                            <input type="text" defaultValue="A Paz Mental de Terminar o Que Você Começa." className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-purple"/>
+                        </div>
+                        <div>
+                            <label className="block text-sm font-bold mb-1 text-brand-gray">Subtítulo</label>
+                            <textarea className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-purple" rows="4">
+                               Um sistema de 3 módulos, baseado em neurociência, para desmontar a procrastinação pela raiz e substituir a ansiedade do "depois eu faço" pela satisfação da tarefa concluída.
+                            </textarea>
+                        </div>
+                        <button onClick={() => handleSave('Hero')} className="bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700">Salvar Alterações</button>
+                    </div>
+                </div>
+
+                 {/* Editor para os Vídeos */}
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                    <h2 className="text-xl font-bold mb-4 text-brand-purple">Editor de Conteúdo do Curso</h2>
+                     <div className="space-y-4">
+                        <div>
+                            <label className="block text-sm font-bold mb-1 text-brand-gray">URL do Vídeo de Introdução (90s)</label>
+                            <input type="text" placeholder="https://vimeo.com/seu-video-intro" className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-purple"/>
+                        </div>
+                         <div>
+                            <label className="block text-sm font-bold mb-1 text-brand-gray">URL do Vídeo do Módulo 1 (5min)</label>
+                            <input type="text" placeholder="https://vimeo.com/seu-video-modulo1" className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-purple"/>
+                        </div>
+                         <div>
+                            <label className="block text-sm font-bold mb-1 text-brand-gray">Link para o PDF do E-book (Módulo 2)</label>
+                            <input type="text" placeholder="/caminho/para/ebook.pdf" className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-purple"/>
+                        </div>
+                        <button onClick={() => handleSave('Conteúdo do Curso')} className="bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700">Salvar Links e Ficheiros</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}

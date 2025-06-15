@@ -1,0 +1,43 @@
+import React from 'react';
+import { LogIn } from 'lucide-react';
+
+export default function LoginPage() {
+    
+    const handleLogin = (e) => {
+        e.preventDefault();
+        // Lógica de Backend: Aqui seria feita uma chamada para o backend
+        // para verificar o e-mail e a palavra-passe. Se válido, o backend
+        // retornaria um token e o utilizador seria redirecionado para '/curso'.
+        alert('Login simulado com sucesso! A redirecionar para o curso...');
+        // window.location.href = '/curso';
+    };
+
+    return (
+        <div className="min-h-screen bg-gray-50 flex flex-col justify-center items-center p-4">
+            <div className="max-w-md w-full bg-white rounded-lg shadow-md p-8">
+                <h2 className="text-3xl font-bold text-center text-brand-dark mb-2">Aceder ao Curso</h2>
+                <p className="text-center text-brand-gray mb-8">Insira os seus dados para iniciar a sua jornada.</p>
+                <form onSubmit={handleLogin}>
+                    <div className="mb-4">
+                        <label className="block text-sm font-bold text-brand-gray mb-2" htmlFor="email">
+                            E-mail
+                        </label>
+                        <input id="email" type="email" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue" />
+                    </div>
+                    <div className="mb-6">
+                        <label className="block text-sm font-bold text-brand-gray mb-2" htmlFor="password">
+                            Palavra-passe
+                        </label>
+                        <input id="password" type="password" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue" />
+                    </div>
+                    <button type="submit" className="w-full bg-brand-blue text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-blue-700 transition-colors shadow-lg flex items-center justify-center gap-2">
+                        <LogIn size={20} /> Entrar no Curso
+                    </button>
+                </form>
+                <div className="text-center mt-6">
+                    <a href="/suporte" className="text-sm text-brand-blue hover:underline">Problemas com o login? Contacte o suporte.</a>
+                </div>
+            </div>
+        </div>
+    );
+}

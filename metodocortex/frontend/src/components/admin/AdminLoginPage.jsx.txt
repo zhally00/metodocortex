@@ -1,0 +1,40 @@
+import React from 'react';
+import { ShieldCheck } from 'lucide-react';
+
+export default function AdminLoginPage() {
+    
+    const handleLogin = (e) => {
+        e.preventDefault();
+        // Lógica de Backend para autenticar o administrador
+        alert('Login de admin simulado com sucesso! A redirecionar para o painel...');
+        window.location.href = '/admin'; // Redireciona para o painel
+    };
+
+    return (
+        <div className="min-h-screen bg-gray-800 flex flex-col justify-center items-center p-4">
+            <div className="max-w-sm w-full bg-white rounded-lg shadow-xl p-8">
+                <div className="text-center mb-8">
+                  <ShieldCheck className="mx-auto h-12 w-12 text-brand-purple" />
+                  <h2 className="mt-4 text-3xl font-bold text-brand-dark">Painel de Administrador</h2>
+                </div>
+                <form onSubmit={handleLogin}>
+                    <div className="mb-4">
+                        <label className="block text-sm font-bold text-brand-gray mb-2" htmlFor="username">
+                            Utilizador
+                        </label>
+                        <input id="username" type="text" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-purple" />
+                    </div>
+                    <div className="mb-6">
+                        <label className="block text-sm font-bold text-brand-gray mb-2" htmlFor="password">
+                            Palavra-passe
+                        </label>
+                        <input id="password" type="password" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-purple" />
+                    </div>
+                    <button type="submit" className="w-full bg-brand-purple text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-purple-700 transition-colors">
+                        Aceder
+                    </button>
+                </form>
+            </div>
+        </div>
+    );
+}

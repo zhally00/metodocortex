@@ -1,0 +1,15 @@
+import React from 'react';
+
+export default function Dashboard() {
+  return (
+    <div>
+      <h1 className="text-3xl font-bold mb-2">Seja bem-vindo(a) à sua Jornada!</h1>
+      <p className="text-brand-gray mb-8">Este é o seu painel de controle para uma vida com mais ação e menos procrastinação. Comece com nosso vídeo de introdução.</p>
+      
+      <div className="aspect-video bg-gray-900 rounded-lg">
+        {/* Aqui seria incorporado o Vídeo de Introdução de 90 segundos */}
+        <p className="text-white text-center p-10">Placeholder para o Vídeo de Introdução Geral (90s)</p>
+      </div>
+    </div>
+  );
+}

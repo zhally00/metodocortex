@@ -1,0 +1,49 @@
+import React from 'react';
+import { Download } from 'lucide-react';
+
+const ToolCard = ({ title, description }) => (
+  <div className="bg-white p-6 rounded-lg border hover:shadow-lg transition-shadow">
+    <h3 className="font-bold text-lg mb-2">{title}</h3>
+    <p className="text-brand-gray">{description}</p>
+  </div>
+);
+
+export default function Module3() {
+  return (
+    <div>
+      <h1 className="text-3xl font-bold mb-4 text-brand-dark">Módulo 3: Caixa de Ferramentas</h1>
+      <p className="text-brand-gray mb-8">Aqui você encontra as ferramentas práticas e templates para aplicar o conhecimento e transformar sua rotina imediatamente.</p>
+
+      <div className="grid md:grid-cols-2 gap-6">
+        <ToolCard 
+          title="Técnica Pomodoro"
+          description="Aprenda a usar blocos de foco de 25 minutos para quebrar a inércia e aumentar a concentração."
+        />
+        <ToolCard 
+          title="Matriz de Eisenhower"
+          description="Diferencie o que é urgente do que é importante para focar sua energia nas tarefas de maior impacto."
+        />
+        <ToolCard 
+          title="Método WOOP"
+          description="Crie planos realistas e à prova de falhas antecipando os obstáculos antes que eles apareçam."
+        />
+        <ToolCard 
+          title="Empacotamento de Tentações"
+          description="Vincule uma tarefa que você adia a uma atividade prazerosa para 'hackear' sua motivação."
+        />
+      </div>
+
+      <div className="mt-12">
+        <h2 className="text-2xl font-bold mb-4">Templates para Download</h2>
+        <div className="flex flex-col md:flex-row gap-4">
+          <a href="/path/to/template1.pdf" download className="flex items-center gap-2 bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors">
+            <Download size={20} /> Planejamento Diário 3-2-1
+          </a>
+          <a href="/path/to/template2.pdf" download className="flex items-center gap-2 bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors">
+            <Download size={20} /> Desafio de 7 Dias
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,30 @@
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { LayoutDashboard, Film, BookOpen, Wrench } from 'lucide-react';
+
+export default function Sidebar() {
+  const navLinkClass = "flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900";
+  const activeNavLinkClass = "flex items-center gap-3 rounded-lg px-3 py-2 text-gray-900 bg-gray-200 transition-all";
+  
+  return (
+    <aside className="w-64 bg-white border-r">
+      <div className="p-6">
+        <h2 className="text-xl font-bold">Seu Curso</h2>
+      </div>
+      <nav className="flex flex-col gap-2 p-4">
+        <NavLink to="/curso" end className={({ isActive }) => isActive ? activeNavLinkClass : navLinkClass}>
+          <LayoutDashboard size={20} /> Início
+        </NavLink>
+        <NavLink to="/curso/modulo1" className={({ isActive }) => isActive ? activeNavLinkClass : navLinkClass}>
+          <Film size={20} /> Módulo 1: A Imersão
+        </NavLink>
+        <NavLink to="/curso/modulo2" className={({ isActive }) => isActive ? activeNavLinkClass : navLinkClass}>
+          <BookOpen size={20} /> Módulo 2: O E-book
+        </NavLink>
+        <NavLink to="/curso/modulo3" className={({ isActive }) => isActive ? activeNavLinkClass : navLinkClass}>
+          <Wrench size={20} /> Módulo 3: Ferramentas
+        </NavLink>
+      </nav>
+    </aside>
+  );
+}
